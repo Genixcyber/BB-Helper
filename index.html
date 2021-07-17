@@ -1,0 +1,322 @@
+
+<html><head>
+<meta content="text/html; charset=utf-8">
+<title>Bug Bounty Helper</title>
+<meta name="author" content="Genixcyber" />
+<meta name="referrer" content="never">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="SHORTCUT ICON" href="">
+<link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet" type="text/css">
+<style>
+body {
+  background-image: url(https://assets.faisalahmed.me/bg1.png);
+	color:#FFF;
+	font-size: 14pt;
+    font-family:"Merienda One";
+	font-weight: bold;
+	padding: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.row {
+  padding: 30px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+canvas {
+  height: 100vh;
+  z-index: -10;
+  position: fixed;
+  top: 0px;
+}
+
+a {
+color:#fff;
+text-decoration:none;
+}
+a:hover {
+color:#DA4932;
+}
+hr {border: 2;width: 50%;}
+
+input{
+	overflow: hidden;
+	color:#FFF;
+        background: transparent;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border: 1px solid;
+	font-family:Arial,sans-serif;
+	font-size:16px;
+	font-weight:700;
+	height:32px;
+	padding:4px 16px;
+}
+</style>
+</head><body>
+<script>
+    function check_submit(e) {
+        if (e && e.keyCode == 13 && e.target.type != 'textarea') {
+            e.preventDefault();
+            e.defaultPrevented = true;
+
+            if($('#tool-form').valid() == true) {
+                if ($('#security-check').is(':visible') == true) {
+                    document.getElementById('tool-form').submit();
+            }
+        }
+    }
+	}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100953906-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<div id="particles-js">
+<div style="font-family: Merienda One;text-align: center;font-size: 25pt;text-shadow: 0 0 6px #FF0000, 0 0 5px #FF0000, 0 0 5px #FF0000;color: #FFF">Bug Bounty Helper<br></div><br/>
+<div onkeypress="check_submit(event)">
+        
+<form novalidate="novalidate" onsubmit="return false" id="tool-form" role="form" method="GET" action="/" target="response-frame">
+<input name="p" value="tool" type="hidden">
+<input name="t" value="10" type="hidden">
+<input name="act" value="exec" type="hidden">
+<script>
+document.getElementById('tool-form').setAttribute('onsubmit', 'return false');
+check_submit = function(event) {};
+</script>
+<script>
+function google_it(type) 
+{
+    if($('#tool-form').valid() == false) {
+        return;
+    }
+    
+    site = document.getElementById('target').value;
+    if (site.indexOf('://') > 0) {
+        site = site.substr(site.indexOf('://')+3);
+    }                            
+    url = 'https://www.google.com/search?q=';
+    url += 'site:' + site;
+
+switch(type)
+{
+    case 1:
+        url += '+intitle:index.of';
+        break;
+    case 2:
+        url += '+ext:xml+|+ext:conf+|+ext:cnf+|+ext:reg+|+ext:inf+|+ext:rdp+|+ext:cfg+|+ext:txt+|+ext:ora+|+ext:ini';
+        break;
+    case 3:
+        url += '+ext:sql+|+ext:dbf+|+ext:mdb';
+        break;
+    case 4:
+        url += '+ext:log';
+        break;
+    case 5:
+        url += '+ext:bkf+|+ext:bkp+|+ext:bak+|+ext:old+|+ext:backup';
+        break;
+    case 6:
+        url += '+inurl:login';
+        break;
+    case 7:
+        url += '+intext:"sql+syntax+near"+|+intext:"syntax+error+has+occurred"+|+intext:"incorrect+syntax+near"+|+intext:"unexpected+end+of+SQL+command"+|+intext:"Warning:+mysql_connect()"+|+intext:"Warning:+mysql_query()"+|+intext:"Warning:+pg_connect()"';
+        break;
+    case 8:
+        url += '+ext:doc+|+ext:docx+|+ext:odt+|+ext:pdf+|+ext:rtf+|+ext:sxw+|+ext:psw+|+ext:ppt+|+ext:pptx+|+ext:pps+|+ext:csv';
+        break;
+    case 9:
+        url += '+ext:php+intitle:phpinfo+"published+by+the+PHP+Group"';
+        break;
+	case 10:
+        url += '+inurl:wp-+|+inurl:wp-content+|+inurl:plugins+|+inurl:uploads+|+inurl:themes+|+inurl:download';
+        break;
+	case 11:
+        url += '+inurl:shell+|+inurl:backdoor+|+inurl:wso+|+inurl:cmd+|+shadow+|+passwd+|+boot.ini+|+inurl:backdoor';
+        break;
+	case 12:
+        url += '+inurl:readme+|+inurl:license+|+inurl:install+|+inurl:setup+|+inurl:config';
+        break;
+	case 13:
+        url += '+inurl:redir+|+inurl:url+|+inurl:redirect+|+inurl:return+|+inurl:src=http+|+inurl:r=http';
+        break;
+	case 14:
+        url += '+ext:action+|+ext:struts+|+ext:do';
+        break;
+	case 15:
+        url = 'https://www.google.com/search?q=site:pastebin.com+' + site;
+        break;
+	case 16:
+        url = 'https://www.google.com/search?q=site:linkedin.com+employees+' + site;
+        break;
+	case 17:
+        url += '+inurl:"/phpinfo.php"+|+inurl:".htaccess"+|+inurl:"/.git"+' + site + ' -github';
+        break;
+	case 18:
+        url = 'https://www.google.com/search?q=site:*.' + site;
+        break;
+	case 19:
+        url = 'https://www.google.com/search?q=site:*.*.' + site;
+        break;
+    case 20:
+        url += '+inurl:wp-content+|+inurl:wp-includes';
+        break;
+	case 21:
+        url =  'https://github.com/search?q="*.' + site +'"&type=host';
+        break;
+    case 22:
+        url =  'http://' + site + '/crossdomain.xml';
+        break; 
+    case 23:
+        url =  'http://threatcrowd.org/domain.php?domain=' + site;
+        break; 
+    case 24:
+        url = 'https://www.google.com/search?q=+inurl:' + site + '+ext:swf';
+        break;
+    case 25:
+        url = 'https://yandex.com/search/?text=site:' + site + '%20mime:swf';
+        break;
+    case 26:
+        url =  'https://web.archive.org/cdx/search?url=' + site + '/&matchType=domain&collapse=urlkey&output=text&fl=original&filter=urlkey:.*swf&limit=100000&_=1507209148310';
+        break;
+    case 27:
+        url =  'https://web.archive.org/cdx/search?url=' + site + '/&matchType=domain&collapse=urlkey&output=text&fl=original&filter=mimetype:application/x-shockwave-flash&limit=100000&_=1507209148310';
+        break;
+    case 28:
+        url =  'https://web.archive.org/web/*/(.' + site + ')';
+    case 29:
+        url =  'https://web.archive.org/web/*/' + site + '/*';
+        break; 
+    case 30:
+        url =  'https://crt.sh/?q=%25.' + site;
+        break; 
+    case 31:
+        url =  'https://www.openbugbounty.org/search/?search=' + site +'&type=host';
+        break;
+    case 32:
+        url =  'https://www.reddit.com/search/?q=' + site +'&source=recent';
+        break; 
+    case 33:
+        url =  'http://wwwb-dedup.us.archive.org:8083/cdx/search?url=' + site + '/&matchType=domain&collapse=digest&output=text&fl=original,timestamp&filter=urlkey:.*wp[-].*&limit=1000000&xx=';
+        break;
+    case 34:
+        url =  'https://censys.io/ipv4?q=' + site;
+        break;
+    case 35:
+        url =  'https://censys.io/domain?q=' + site;
+        break; 
+    case 36:
+        url =  'https://censys.io/certificates?q=' + site;
+        break;
+    case 37:
+        url =  'https://www.shodan.io/search?query=' + site;
+        break;
+}
+    window.open(url);
+
+}
+</script>
+
+<div style="text-align: center;"><b>Target Domain:</b>
+
+<input id="target" name="target" placeholder="site.com" autofocus="" type="text"><br/></div>
+
+<div class="row">
+  <div class="column"><div style="text-align: center;">
+    <div style="display: inline-block; text-align: left;">
+1) <a href="#" onclick="google_it(1)">Directory listing vulnerabilities</a><br/>  
+2) <a href="#" onclick="google_it(2)">Exposed Configuration files</a><br/>
+3) <a href="#" onclick="google_it(3)">Exposed Database files</a><br/> 
+4) <a href="#" onclick="google_it(10)">Find WordPress</a><br/>	
+5) <a href="#" onclick="google_it(4)">Exposed log files</a><br/> 
+6) <a href="#" onclick="google_it(5)">Backup and old files</a><br/>
+7) <a href="#" onclick="google_it(6)">Login pages</a><br/>
+8) <a href="#" onclick="google_it(7)">SQL errors</a><br/>
+9) <a href="#" onclick="google_it(8)">Publicly exposed documents</a><br/>
+10) <a href="#" onclick="google_it(9)">phpinfo()</a><br/>
+11) <a href="#" onclick="google_it(11)">Finding Backdoors</a><br/>
+12) <a href="#" onclick="google_it(12)">Install / Setup files</a><br/>
+13) <a href="#" onclick="google_it(13)">Open Redirects</a><br/>
+14) <a href="#" onclick="google_it(14)">Apache STRUTS RCE</a><br/>
+15) <a href="#" onclick="google_it(15)">Find Pastebin entries</a><br/>
+16) <a href="#" onclick="google_it(16)">Employees on LINKEDIN</a><br/>
+17) <a href="#" onclick="google_it(17)">.htaccess sensitive files</a><br/>
+18) <a href="#" onclick="google_it(18)">Find Subdomains</a><br/>
+19) <a href="#" onclick="google_it(19)">Find Sub-Subdomains</a><br/>
+</div></div></div>
+<div class="column"><div style="text-align: center;">
+    <div style="display: inline-block; text-align: left;">
+20) <a href="#" onclick="google_it(20)">Find WordPress #2</a><br/>
+21) <a href="#" onclick="google_it(33)">Find WordPress [Wayback Machine]</a><br/>
+22) <a href="#" onclick="google_it(21)">Search in GITHUB</a><br/>
+23) <a href="#" onclick="google_it(31)">Search in OpenBugBounty</a><br/>
+24) <a href="#" onclick="google_it(32)">Search in Reddit</a><br/>
+25) <a href="#" onclick="google_it(22)">Test CrossDomain</a><br/>
+26) <a href="#" onclick="google_it(23)">Check in ThreatCrowd</a><br/>
+27) <a href="#" onclick="google_it(24)">Find .SWF file (Google)</a><br/>
+28) <a href="#" onclick="google_it(25)">Find .SWF file (Yandex)</a><br/>
+29) <a href="#" onclick="google_it(26)">Search SWF in WayBack Machine</a><br/>
+30) <a href="#" onclick="google_it(27)">Search in WayBack Machine #2</a><br/>
+31) <a href="#" onclick="google_it(28)">Search in WayBack Machine #3</a><br/>
+32) <a href="#" onclick="google_it(29)">Search in WayBack Machine [List/All]</a><br/>
+33) <a href="#" onclick="google_it(30)">Check in crt.sh</a><br/>
+34) Check in CENSYS <u><a href="#" onclick="google_it(34)">[IP4]</a></u> | <u><a href="#" onclick="google_it(35)">[DOMAINS]</a></u> | <u><a href="#" onclick="google_it(36)">[CERTS]</a></u><br/>
+35) <a href="#" onclick="google_it(37)">Search in SHODAN</a><br/>
+  </div>
+  </div>
+  </div>
+</div>
+
+</div></div></form>
+<div style="clear: both;"></div>
+<hr>
+<div style="font-family: Merienda One;text-align: center;font-size: 25pt;text-shadow: 0 0 6px #FF0000, 0 0 5px #FF0000, 0 0 5px #FF0000;color: #FFF">Helper Websites<br></div><br>
+
+<div style="text-align: center;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;">
+    <div style="display: inline-block; text-align: left;">
+1) <a href="https://requestbin.net/" rel="noreferrer noopener" target="_blank">DNSBin - The request.bin of DNS!</a><br/>
+2) <a href="https://hackertarget.com/wordpress-security-scan/" rel="noreferrer noopener" target="_blank">WordPress Scan #1</a><br/>
+3) <a href="https://wprecon.com/" rel="noreferrer noopener" target="_blank">WordPress Scan #2</a><br/>
+4) <a href="https://developers.facebook.com/tools/ct/" rel="noreferrer noopener" target="_blank">Facebook Certificate Transparency Monitoring [Recon]</a><br/>
+5) <a href="https://www.smartconversion.com/unit_conversion/IP_Address_Converter.aspx" rel="noreferrer noopener" target="_blank">IP converter</a><br/>
+6) <a href="https://whoisrequest.com/history/" rel="noreferrer noopener" target="_blank">Domain History Checker</a><br/>
+7) <a href="https://publicwww.com/" rel="noreferrer noopener" target="_blank">Source code search engine</a><br/>
+    </div>
+</div>
+
+<script src="jquery1.js"></script><script src="jquery.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
+
+<script  src="bg.js"></script>
+
+<br/><div style="font-family: Merienda One;text-align: center;padding: 7px 0;font-size:10px;"><h1>THANKS TO FAISAL SIR</h1></div>
+<div style="font-family: Merienda One;text-align: center;padding: 5px 0;font-size:5px;"><h1>2021 &#169; All RIGHTS RESERVED</h1></div>
+</body></html>
